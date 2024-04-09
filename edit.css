@@ -84,12 +84,12 @@ button:hover {
     padding: 20px;
     text-align: center;
 }
-.cover-photo {
+/* .cover-photo {
     height: 50px;
     background: linear-gradient(133deg, rgb(0, 0, 0) 0%, rgba(255, 255, 255, 0) 100%);
     transition: background-color 0.5s ease;
     margin-bottom: 20px;
-} 
+}  */
  /*end */
 
 h1 {

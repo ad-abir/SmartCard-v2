@@ -32,15 +32,17 @@
     <div class="edit">
         <form action="#" method="POST">
         <div class="container">
-            <h1>Select Cover Color</h1>
-            <label for="colorPicker">Choose a background color:</label>
-            <input type="color" id="colorPicker">
-            <label for="addGradient">Include gradient:</label>
-            <input type="checkbox" id="addGradient">
-        </div>
-        <div class="cover-photo">
+        <h1>Select Cover Color</h1>
+        <label for="coverColor">Choose a background color:</label>
+        <input type="color" id="coverColor" name="coverColor">
+
+        <label for="addGradient">Include gradient:</label>
+        <input type="checkbox" id="addGradient" name="addGradient">
+    </div>
+
+        <!-- <div class="cover-photo">
             Your cover photo content goes here
-        </div>
+        </div> -->
         <script src="color.js"></script>
 
         <h1>Edit Your Account</h1>
@@ -92,3 +94,49 @@
 
 </body>
 </html>
+
+<?php
+include("config.php"); // Include your database connection configuration file
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve user email from login/session information
+    // For demonstration purposes, let's assume you retrieved it and stored it in $user_email variable
+    $user_email = "user@example.com"; // Example email
+
+    // Retrieve user inputs from HTML form and sanitize them
+    $fullName = mysqli_real_escape_string($conn, $_POST['name']);
+    $profileBio = mysqli_real_escape_string($conn, $_POST['bio']);
+    // Retrieve other fields similarly...
+
+    // Construct SQL query to update user information based on email
+    $sql = "UPDATE user_info SET 
+            `Full Name` = '$fullName', 
+            `Profile Bio` = '$profileBio', 
+            `Phone Number` = '$phoneNumber', 
+            `Descriptions` = '$description', 
+            `Email` = '$email', 
+            `WhatsApp` = '$whatsapp', 
+            `Home Address` = '$homeAddress', 
+            `Company Address` = '$companyAddress', 
+            `Web Address` = '$webAddress', 
+            `Emergency Number` = '$emergencyNumber', 
+            `Facebook Link` = '$facebookLink', 
+            `Instagram Link` = '$instagramLink', 
+            `LinkedIn Link` = '$linkedinLink', 
+            `GitHub Link` = '$githubLink', 
+            `Cover Color` = '$coverColor', 
+            `Gradient` = '$gradient'
+            WHERE `Email` = '$user_email'";
+
+    // Execute SQL query
+    if ($conn->query($sql) === TRUE) {
+        echo "User information updated successfully";
+    } else {
+        echo "Error updating user information: " . $conn->error;
+    }
+}
+
+// Close database connection
+$conn->close();
+?>
+

@@ -23,7 +23,7 @@
 <body>
     <div class="container" id="main">
         <div class="sign-up">
-            <form action="verification.php" method="POST">
+            <form action="#" method="POST">
                 <h1>Create Account</h1>
                 <input type="text" name="fname" placeholder="First Name" required="">
                 <input type="text" name="lname" placeholder="Last Name" required="">
@@ -70,66 +70,64 @@
 </html>
 
 <?php
-include("config.php");
+    include("config.php");
 
-if(isset($_POST['signup'])) {
-    $first_name = mysqli_real_escape_string($connection, $_POST['fname']);
-    $last_name  = mysqli_real_escape_string($connection, $_POST['lname']);
-    $email      = mysqli_real_escape_string($connection, $_POST['email']);
-    $pass       = mysqli_real_escape_string($connection, $_POST['pass']);
-    $con_pass   = mysqli_real_escape_string($connection, $_POST['confirm_pass']);
+    if(isset($_POST['signup'])) {
+        $first_name = mysqli_real_escape_string($connection, $_POST['fname']);
+        $last_name  = mysqli_real_escape_string($connection, $_POST['lname']);
+        $email      = mysqli_real_escape_string($connection, $_POST['email']);
+        $pass       = mysqli_real_escape_string($connection, $_POST['pass']);
+        $con_pass   = mysqli_real_escape_string($connection, $_POST['confirm_pass']);
 
-    // Generate a random verification code
-    $verification_code = mt_rand(100000, 999999);
-
-    // Check if the password and confirm password match
-    if ($pass !== $con_pass) {
-        echo "<script>alert('Passwords do not match. Please try again.');</script>";
-    } elseif (strlen($pass) < 8) {
-        echo "<script>alert('Password must be at least 8 characters long. Please try again.');</script>";
-    } else {
-        // Check if the email already exists in the database
-        $check_query = "SELECT * FROM signup WHERE `Email` = '$email'";
-        $check_result = mysqli_query($connection, $check_query);
-
-        if(mysqli_num_rows($check_result) > 0) {
-            echo "<script>alert('This email address already exists. Please use a different email address.');</script>";
+        // Check if the password and confirm password match
+        if ($pass !== $con_pass) {
+            echo "<script>var signupMessage = 'Sign Up Failed.\\nPasswords do not match.\\nPlease try again.';</script>";
+        } elseif (strlen($pass) < 8) {
+            echo "<script>var signupMessage = 'Sign Up Failed.\\nPassword must be at least 8 characters long.\\nPlease try again.';</script>";
         } else {
-            // Validate if email is a valid Gmail address
-            if (!preg_match("/^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@gmail.com$/", $email)) {
-                echo "<script>alert('Please provide a valid Gmail address.');</script>";
+            // Check if the email already exists in the database
+            $check_query = "SELECT * FROM signup WHERE `Email` = '$email'";
+            $check_result = mysqli_query($connection, $check_query);
+
+            if(mysqli_num_rows($check_result) > 0) {
+                echo "<script>var signupMessage = 'Sign Up Failed.\\nThis email address already exists.\\nPlease use a different email address.';</script>";
             } else {
-                // Insert the user data into the signup table with verification code
-                $query = "INSERT INTO signup (`First Name`, `Last Name`, `Email`, `Password`, `Confirm Password`) VALUES ('$first_name','$last_name','$email','$pass','$con_pass')";
-
-                $data = mysqli_query($connection, $query);
-
-                //$query_verify = "INSERT INTO verify (`Email`,`Verification_code`) VALUES ('$email','$verification_code')";
-                //$data_verify = mysqli_query($connection, $query_verify);
-
-                if($data) {
-                    // Send verification email
-                    //$to = $email;
-                    //$subject = 'Email Verification';
-                    //$message = 'Your verification code is: ' . $verification_code;
-                    //$headers = 'From: abhishek54das@gmail.com' . "\r\n" .
-                               //'Reply-To: abhishek54das@gmail.com' . "\r\n" .
-                               //'X-Mailer: PHP/' . phpversion();
-
-                    //mail($to, $subject, $message, $headers);
-
-                    echo "<script>alert('Sign Up Successful! A verification code has been sent to your email. Please verify your email to login.');</script>";
-                    
-                    header('Location: verification.php');
-                    exit;
-
+                // Validate if email is a valid Gmail address
+                if (!preg_match("/^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@gmail.com$/", $email)) {
+                    echo "<script>var signupMessage = 'Sign Up Failed.\\nPlease provide a valid Gmail address.';</script>";
                 } else {
-                    echo "<script>alert('Sign Up Failed. Error: " . mysqli_error($connection) . "');</script>";
-                }                    
+                    // Insert the user data into the signup table
+                    $query = "INSERT INTO signup (`First Name`, `Last Name`, `Email`, `Password`, `Confirm Password`) VALUES ('$first_name','$last_name','$email','$pass','$con_pass')";
+                    $data = mysqli_query($connection, $query);
+
+                    if($data) {
+                        echo "<script>var signupMessage = 'Sign Up Successful!\\nA verification code is sent to your email address.';</script>";
+
+                        // Generate a random verification code
+                        $verification_code = mt_rand(100000, 999999);
+
+                        $query_verify = "INSERT INTO verify (`Email`,`Verification_code`) VALUES ('$email','$verification_code')";
+                        $data_verify = mysqli_query($connection, $query_verify);
+
+                        //header('location:verification.php');
+
+                        // Send verification email
+                        $to = $email;
+                        $subject = 'Email Verification';
+                        $message = 'Your verification code is: ' . $verification_code;
+                        $headers = 'From: abhishek54das@gmail.com' . "\r\n" .
+                        'Reply-To: abhishek54das@gmail.com' . "\r\n" .
+                        'X-Mailer: PHP/' . phpversion();
+
+                        mail($to, $subject, $message, $headers);
+
+                    } else {
+                        echo "<script>var signupMessage = 'Sign Up Failed.\\nError: " . mysqli_error($connection) . "';</script>";
+                    }                    
+                }
             }
         }
     }
-}
 ?>
 
 <?php

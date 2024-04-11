@@ -72,9 +72,9 @@
 <?php
     include("config.php");
 
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\SMTP;
-    use PHPMailer\PHPMailer\Exception;
+    // use PHPMailer\PHPMailer\PHPMailer;
+    // use PHPMailer\PHPMailer\SMTP;
+    // use PHPMailer\PHPMailer\Exception;
 
     //Load Composer's autoloader
     require 'vendor/autoload.php';
@@ -86,17 +86,17 @@
         $mail->isSMTP();
         $mail->SMTPAuth   = true;
 
-        $mail->Host       = "smtp.gmail.com";
-        $mail->Username   = "abhishek54das@gmail.com";
-        $mail->Password   = "princeabir54";
+        $mail->Host       = "smtp.example.com";
+        $mail->Username   = "xyz@gmail.com";
+        $mail->Password   = "xyz";
 
-        $mail->SMTPSecure = "tls";
-        $mail->Port       = 587;
+        $mail->SMTPSecure = "#";
+        $mail->Port       = 0;
 
-        $mail->setFrom("abhishek54das@gmail.com", "$first_name");
+        $mail->setFrom("xyz@gmail.com", "$first_name");
         $mail->addAddress($email);
 
-        $mail->isHTML(true);                                  //Set email format to HTML
+        $mail->isHTML(true);                                  
         $mail->Subject  = "Verification code for Smart Card";
 
         $email_template = "<h2>You have registered with Smart Card</h2>

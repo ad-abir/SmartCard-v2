@@ -72,6 +72,44 @@
 <?php
     include("config.php");
 
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+
+    //Load Composer's autoloader
+    require 'vendor/autoload.php';
+
+    function sendemail_verify($first_name,$email,$verification_code)
+    {
+        $mail = new PHPMailer(true);
+        //$mail->SMTPDebug = 2;
+        $mail->isSMTP();
+        $mail->SMTPAuth   = true;
+
+        $mail->Host       = "smtp.gmail.com";
+        $mail->Username   = "abhishek54das@gmail.com";
+        $mail->Password   = "princeabir54";
+
+        $mail->SMTPSecure = "tls";
+        $mail->Port       = 587;
+
+        $mail->setFrom("abhishek54das@gmail.com", "$first_name");
+        $mail->addAddress($email);
+
+        $mail->isHTML(true);                                  //Set email format to HTML
+        $mail->Subject  = "Verification code for Smart Card";
+
+        $email_template = "<h2>You have registered with Smart Card</h2>
+        <h5>Verify your email address to login.</h5>
+        <br/><br/>
+        Your verification code: $verification_code";
+
+
+        $mail->Body     = $email_template;
+        $mail->send();
+        echo 'Email has been sent';
+    }
+
     if(isset($_POST['signup'])) {
         $first_name = mysqli_real_escape_string($connection, $_POST['fname']);
         $last_name  = mysqli_real_escape_string($connection, $_POST['lname']);
@@ -110,16 +148,8 @@
                         $data_verify = mysqli_query($connection, $query_verify);
 
                         //header('location:verification.php');
+                        sendemail_verify("$first_name","$email","$verification_code");
 
-                        // Send verification email
-                        $to = $email;
-                        $subject = 'Email Verification';
-                        $message = 'Your verification code is: ' . $verification_code;
-                        $headers = 'From: abhishek54das@gmail.com' . "\r\n" .
-                        'Reply-To: abhishek54das@gmail.com' . "\r\n" .
-                        'X-Mailer: PHP/' . phpversion();
-
-                        mail($to, $subject, $message, $headers);
 
                     } else {
                         echo "<script>var signupMessage = 'Sign Up Failed.\\nError: " . mysqli_error($connection) . "';</script>";
@@ -154,4 +184,3 @@
         }
     }
 ?>
-

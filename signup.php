@@ -23,30 +23,44 @@
 <body>
     <div class="container" id="main">
         <div class="sign-up">
-            <form action="#" method="POST">
+            <form class="acc_form" action="#" method="POST">
                 <h1>Create Account</h1>
-                <input type="text" name="fname" placeholder="First Name" required="">
-                <input type="text" name="lname" placeholder="Last Name" required="">
-                <input type="email" name="email" placeholder="Email" required="">
-                <input type="password" name="pass" placeholder="Password (minimum 8 characters)" required="">
-                <input type="password" name="confirm_pass" placeholder="Confirm Password" required="">
-                <button type="submit" name="signup">Sign Up</button>
+                <input class="create_acc" type="text" name="fname" placeholder="First Name" required="">
+                <input class="create_acc" type="text" name="lname" placeholder="Last Name" required="">
+                <input class="create_acc" type="email" name="email" placeholder="Email" required="">
+                <input class="create_acc" type="password" name="pass" placeholder="Password (minimum 8 characters)" required="">
+                <input class="create_acc" type="password" name="confirm_pass" placeholder="Confirm Password" required="">
+                <button class="signup_button" type="submit" name="signup">Sign Up</button>
                 <p>All fields are mandatory for completion.</p>
 
             </form>
         </div>
 
         <div class="sign-in">
-            <form action="#" method="POST">
+            <form class="acc_form" action="#" method="POST">
                 <h1>Sign In</h1>
-                <input type="email" name="email" placeholder="Email" required="">
-                <input type="password" name="pass" placeholder="Password" required="">
-                <div class="custom-checkbox">
-                <input type="checkbox" id="show-password" name="check">
-                <label for="show-password">Show Password</label>
-            </div>
+                <input class="create_acc" type="email" name="email" placeholder="Email" required="">
+                <input class="create_acc" type="password" name="pass" placeholder="Password" required="">
+                <div class="show_checkbox">
+                    <input type="checkbox" id="showPasswordCheckbox" onchange="myFunction()">
+                    <label class="check_pass" for="showPasswordCheckbox">Show Password</label>
+                    <!-- <p class="show_pass">Show Password</p> -->
+                </div>
+
+
+                <!-- <script type="text/javascript">
+                    function myFunction() {
+                        var show = document.querySelector('input[type="password"]');
+                        if (show.type === 'password') {
+                            show.type = 'text';
+                        } else {
+                            show.type = 'password';
+                        }
+                    }
+                </script> -->
+
                 <a href="#">Forgot Password?</a>
-                <button type="submit" name="signin">Sign In</button>
+                <button class="signup_button" type="submit" name="signin">Sign In</button>
             </form>
         </div>
 
@@ -55,13 +69,13 @@
                 <div class="overlay-left">
                     <h1>Welcome Back!</h1>
                     <p>To stay connected, please sign in with your personal information.</p>
-                    <button id="signIn">Sign In</button>
+                    <button class="signup_button" id="signIn">Sign In</button>
                 </div>
 
                 <div class="overlay-right">
                     <h1>Hello, Friend</h1>
                     <p>Begin your personalized journey with us by sharing your information.</p>
-                    <button id="signUp">Sign Up</button>
+                    <button class="signup_button" id="signUp">Sign Up</button>
                 </div>
             </div>
         </div>

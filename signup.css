@@ -44,7 +44,7 @@ body {
     z-index: 2;
 }
 
-form {
+.acc_form {
     background: #fff;
     display: flex;
     align-items: center;
@@ -74,7 +74,7 @@ p {
     margin-top: 12px;
 }
 
-input {
+.create_acc {
     background: #eee;
     padding: 12px 15px;
     margin: 8px 15px;
@@ -84,7 +84,7 @@ input {
     outline: none;
 }
 
-input:focus {
+.create_acc:focus {
     outline: 1px solid black;
 }
 
@@ -96,7 +96,22 @@ a {
     margin: 15px 0;
 }
 
-button {
+.show_checkbox {
+    display: flex;
+    /* align-items: left; */
+    justify-content: flex-start;
+    width: auto;
+    /* margin-right: 15px; */
+}
+
+.check_pass {
+    font-size: 12px;
+    padding: 2px 5px;
+    /* text-align: left; */
+}
+
+
+.signup_button {
     color: #fff;
     background: #ff4b2b;
     font-size: 12px;
@@ -112,7 +127,7 @@ button {
     cursor: pointer;
 }
 
-button:active {
+.signup_button:active {
     transform: scale(0.90);
 }
 

@@ -1,12 +1,11 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const showPasswordButton = document.getElementById("show-password");
-    const passwordField = document.querySelector("input[name='pass']");
+// pass.js
 
-    showPasswordButton.addEventListener("click", function() {
-        const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
-        passwordField.setAttribute("type", type);
-        this.classList.toggle("fa-eye-slash");
-    });
-});
-
+function myFunction() {
+    var passwordInput = document.querySelector('input[name="pass"]');
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+    } else {
+        passwordInput.type = 'password';
+    }
+}
 

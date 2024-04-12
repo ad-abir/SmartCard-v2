@@ -82,16 +82,17 @@
     function sendemail_verify($first_name,$email,$verification_code)
     {
         $mail = new PHPMailer(true);
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
         //$mail->SMTPDebug = 2;
         $mail->isSMTP();
         $mail->SMTPAuth   = true;
 
-        $mail->Host       = "smtp.example.com";
+        $mail->Host       = "xyz.example.com";
         $mail->Username   = "xyz@gmail.com";
         $mail->Password   = "xyz";
 
-        $mail->SMTPSecure = "#";
-        $mail->Port       = 0;
+        $mail->SMTPSecure = "xyz";
+        $mail->Port       = xyz;
 
         $mail->setFrom("xyz@gmail.com", "$first_name");
         $mail->addAddress($email);

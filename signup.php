@@ -41,7 +41,8 @@
                 <h1>Sign In</h1>
                 <input type="email" name="email" placeholder="Email" required="">
                 <input type="password" name="pass" placeholder="Password" required="">
-                <i class="fa-solid fa-eye" id="show-password"></i>
+                <input type="checkbox" id="show-password-checkbox">
+                <label for="show-password-checkbox">Show Password</label>
                 <a href="#">Forgot Password?</a>
                 <button type="submit" name="signin">Sign In</button>
 
@@ -76,40 +77,40 @@
     // use PHPMailer\PHPMailer\SMTP;
     // use PHPMailer\PHPMailer\Exception;
 
-    //Load Composer's autoloader
-    require 'vendor/autoload.php';
+    // //Load Composer's autoloader
+    // require 'vendor/autoload.php';
 
-    function sendemail_verify($first_name,$email,$verification_code)
-    {
-        $mail = new PHPMailer(true);
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-        //$mail->SMTPDebug = 2;
-        $mail->isSMTP();
-        $mail->SMTPAuth   = true;
+    // function sendemail_verify($first_name,$email,$verification_code)
+    // {
+    //     $mail = new PHPMailer(true);
+    //     $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+    //     //$mail->SMTPDebug = 2;
+    //     $mail->isSMTP();
+    //     $mail->SMTPAuth   = true;
 
-        $mail->Host       = "xyz.example.com";
-        $mail->Username   = "xyz@gmail.com";
-        $mail->Password   = "xyz";
+    //     $mail->Host       = "xyz.exampl.com";
+    //     $mail->Username   = "xyz@gmail.com";
+    //     $mail->Password   = "xyz";
 
-        $mail->SMTPSecure = "xyz";
-        $mail->Port       = xyz;
+    //     $mail->SMTPSecure = "xyz";
+    //     $mail->Port       = xyz;
 
-        $mail->setFrom("xyz@gmail.com", "$first_name");
-        $mail->addAddress($email);
+    //     $mail->setFrom("smartcardv2@gmail.com", "$first_name");
+    //     $mail->addAddress($email);
 
-        $mail->isHTML(true);                                  
-        $mail->Subject  = "Verification code for Smart Card";
+    //     $mail->isHTML(true);                                  
+    //     $mail->Subject  = "Verification code for Smart Card";
 
-        $email_template = "<h2>You have registered with Smart Card</h2>
-        <h5>Verify your email address to login.</h5>
-        <br/><br/>
-        Your verification code: $verification_code";
+    //     $email_template = "<h2>You have registered with Smart Card</h2>
+    //     <h5>Verify your email address to login.</h5>
+    //     <br/><br/>
+    //     Your verification code: $verification_code";
 
 
-        $mail->Body     = $email_template;
-        $mail->send();
-        echo 'Email has been sent';
-    }
+    //     $mail->Body     = $email_template;
+    //     $mail->send();
+    //     echo 'Email has been sent';
+    // }
 
     if(isset($_POST['signup'])) {
         $first_name = mysqli_real_escape_string($connection, $_POST['fname']);
@@ -149,7 +150,7 @@
                         $data_verify = mysqli_query($connection, $query_verify);
 
                         //header('location:verification.php');
-                        sendemail_verify("$first_name","$email","$verification_code");
+                        //sendemail_verify("$first_name","$email","$verification_code");
 
 
                     } else {

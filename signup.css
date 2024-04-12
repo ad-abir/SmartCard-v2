@@ -96,14 +96,20 @@ a {
     margin: 15px 0;
 }
 
-.fa-eye, .fas.fa-eye {
-    position: absolute;
-    top: 51%;
-    right: 16%;
-    cursor: pointer;
-    color: rgb(92, 92, 92);
-}
+/* CSS to reduce the width of the checkbox */
+input[type="checkbox"] {
+    width: 16px; /* Adjust this value as needed */
+    height: 16px; /* Adjust this value as needed */
+  }
+  
 
+label[for="show-password-checkbox"] {
+    display: inline-block;
+    margin-right: 10px;
+    /* margin-top: -2px; */
+    font-size: 12px;
+}
+  
 
 button {
     color: #fff;

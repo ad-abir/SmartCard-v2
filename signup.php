@@ -41,11 +41,12 @@
                 <h1>Sign In</h1>
                 <input type="email" name="email" placeholder="Email" required="">
                 <input type="password" name="pass" placeholder="Password" required="">
-                <input type="checkbox" id="show-password-checkbox">
-                <label for="show-password-checkbox">Show Password</label>
+                <div class="custom-checkbox">
+                <input type="checkbox" id="show-password" name="check">
+                <label for="show-password">Show Password</label>
+            </div>
                 <a href="#">Forgot Password?</a>
                 <button type="submit" name="signin">Sign In</button>
-
             </form>
         </div>
 

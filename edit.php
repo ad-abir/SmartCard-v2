@@ -42,8 +42,8 @@
 
         <!-- <div class="cover-photo">
             Your cover photo content goes here
-        </div> -->
-        <script src="color.js"></script>
+        </div>
+        <script src="color.js"></script> -->
 
         <h1>Edit Your Account</h1>
         <label for="name">Full Name:</label>

@@ -18,6 +18,7 @@
     <script src="signup.js" defer></script>
     <script src="pass.js" defer></script>
     <script src="popup.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
 
 </head>
 <body>
@@ -159,12 +160,14 @@
                         echo "<script>var signupMessage = 'Sign Up Successful!\\nA verification code is sent to your email address.';</script>";
 
                         // Generate a random verification code
-                        $verification_code = mt_rand(100000, 999999);
+                        // $verification_code = mt_rand(100000, 999999);
 
-                        $query_verify = "INSERT INTO verify (`Email`,`Verification_code`) VALUES ('$email','$verification_code')";
-                        $data_verify = mysqli_query($connection, $query_verify);
+                        // $query_verify = "INSERT INTO verify (`Email`,`Verification_code`) VALUES ('$email','$verification_code')";
+                        // $data_verify = mysqli_query($connection, $query_verify);
 
-                        //header('location:verification.php');
+                        // echo "<script>SendOTP('$email', '$verification_code');</script>";
+
+                        header('location:verification.php');
                         //sendemail_verify("$first_name","$email","$verification_code");
 
 

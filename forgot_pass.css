@@ -38,7 +38,7 @@ input[type="email"] {
 button {
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #ff4b2b;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -47,7 +47,8 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background: linear-gradient(to right, #ff4b28, #ff228c);
+    transition: 0.5s ease;
 }
 
 @media screen and (max-width: 480px) {

@@ -3,7 +3,7 @@ function SendOTP(secureToken, email){
     let emailbody = `<h1>Your verification code</h1> ${otp_code}`;
 
     Email.send({
-        SecureToken : "212c435e-832-44da-bc93-772a4fc25f41", // Use the parameter value
+        SecureToken : "#####", // Use the parameter value
         To : email,
         From : "smartcardv2@gmail.com",
         Subject : "Verification Code",

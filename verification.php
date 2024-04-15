@@ -20,7 +20,7 @@
         ?>
         <form id="verificationForm" action="process_verification.php" method="POST">
             <div class="input-group">
-                <input type="email" name="email" placeholder="Email" required>
+                <input type="email" name="email" id="email" placeholder="Email" required> <!-- Added id attribute -->
                 <button class="send_code" type="button" id="sendCodeButton">Send</button>
             </div>
 
@@ -33,7 +33,7 @@
                 // Add event listener to the "Send" button
                 document.getElementById("sendCodeButton").addEventListener("click", function() {
                     // Call the SendOTP() function when the button is clicked
-                    SendOTP();
+                    SendOTP("<?php echo $secureToken; ?>", document.getElementById("email").value); // Pass email as argument
                 });
             </script>
 
@@ -42,5 +42,3 @@
 </body>
     <script src="pass.js" defer></script>
 </html>
-
-

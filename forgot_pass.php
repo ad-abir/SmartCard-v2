@@ -13,9 +13,13 @@
         <form action="#" method="post">
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <input class="email_field" type="email" id="email" name="email" placeholder="Enter your email" required="">
+                <label for="email"><br>Password:</label>
+                <input class="change_pass" type="password" name="pass" placeholder="Password (minimum 8 characters)" required="">
+                <label for="email"><br>Confirm Password:</label>
+                <input class="confirm_change_pass" type="password" name="confirm_pass" placeholder="Confirm Password" required="">
             </div>
-            <button type="submit">Submit</button>
+            <button class="submit_btn" type="submit">Submit</button>
         </form>
     </div>
 </body>

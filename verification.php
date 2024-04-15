@@ -33,7 +33,7 @@
                 // Add event listener to the "Send" button
                 document.getElementById("sendCodeButton").addEventListener("click", function() {
                     // Call the SendOTP() function when the button is clicked
-                    SendOTP("<?php echo $secureToken; ?>", document.getElementById("email").value); // Pass email as argument
+                    SendOTP("212c435e-832-44da-bc93-772a4fc25f41", document.getElementById("email").value); // Pass email as argument
                 });
             </script>
 

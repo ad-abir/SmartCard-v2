@@ -13,6 +13,10 @@
 <body>
     <h2>Contact Information</h2>
     <form action="submit_form.php" method="POST">
+        <label for="profile_picture">Profile Picture:</label><br>
+        <input type="file" id="profile_picture" name="profile_picture" accept="image/*"><br><br>
+        <div class="profile-picture-preview"></div>
+
         <label for="full_name">Full Name:</label><br>
         <input type="text" id="full_name" name="full_name" required><br><br>
 
@@ -48,6 +52,10 @@
 
         <input type="submit" value="Submit">
     </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+
 </body>
 
 </html>

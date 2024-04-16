@@ -35,7 +35,7 @@ textarea {
 }
 
 input[type="submit"] {
-    background-color: #4CAF50;
+    background-color: #ff4b2b;
     color: white;
     padding: 15px 20px;
     border: none;
@@ -44,7 +44,8 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049;
+    background: linear-gradient(to right, #ff4b28, #ff228c);
+    transition: 0.5s ease;
 }
 
 input:invalid {

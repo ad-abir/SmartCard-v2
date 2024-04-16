@@ -25,25 +25,24 @@ label {
 
 /* Add this CSS to styles.css */
 
-/* Profile picture styling */
-#profile_picture {
-    display: none; /* Hide the file input */
+#profile_picture_container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
 
-.profile-picture-preview {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%; /* Make it circular */
-    overflow: hidden;
-    margin-bottom: 20px;
-    position: relative;
+/* Adjustments to align the label and input properly */
+#profile_picture_container label {
+    display: block;
+    margin-bottom: 10px;
 }
 
-.profile-picture-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensure the image fills the circular space */
+#profile_picture_container input[type="file"] {
+    display: block;
 }
+
+
+
 
 
 input[type="text"],

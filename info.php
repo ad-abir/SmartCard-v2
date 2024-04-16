@@ -13,9 +13,11 @@
 <body>
     <h2>Contact Information</h2>
     <form action="submit_form.php" method="POST">
-        <label for="profile_picture">Profile Picture:</label><br>
-        <input type="file" id="profile_picture" name="profile_picture" accept="image/*"><br><br>
-        <div class="profile-picture-preview"></div>
+        <div id="profile_picture_container">
+            <label for="profile_picture">Profile Picture:</label>
+            <input type="file" id="profile_picture" name="profile_picture" accept="image/*">
+            <div class="profile-picture-preview"></div>
+        </div>
 
         <label for="full_name">Full Name:</label><br>
         <input type="text" id="full_name" name="full_name" required><br><br>

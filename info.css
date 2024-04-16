@@ -7,6 +7,8 @@ body {
 }
 
 h2 {
+    font-weight: lighter;
+    padding: 5px;
     background: linear-gradient(to right, #ff4b28, #ff228c);
 }
 

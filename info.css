@@ -23,37 +23,40 @@ label {
     font-weight: bold;
 }
 
+
+
 /* Add this CSS to styles.css */
 
-#profile_picture_container {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-}
-
-/* Adjustments to align the label and input properly */
-#profile_picture_container label {
-    display: block;
+#home_address_name,
+#company_address_name,
+#home_map_link,
+#company_map_link,
+#facebook_link,
+#instagram_link,
+#linkedin_link,
+#github_link {
+    width: calc(50% - 10px);
     margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #000000;
 }
 
-#profile_picture_container input[type="file"] {
-    display: block;
+#home_address,
+#company_address {
+    width: 100%;
+    resize: vertical;
 }
-
-
-
 
 
 input[type="text"],
 input[type="email"],
 input[type="tel"],
-input[type="url"],
+/* input[type="url"], */
 textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
     border-radius: 5px;
     box-sizing: border-box;
 }
@@ -74,7 +77,7 @@ input[type="submit"]:hover {
 }
 
 input:invalid {
-    border-color: red;
+    border-color: black;
 }
 
 input:invalid + span {
@@ -91,7 +94,11 @@ input:invalid + span {
     width: calc(50% - 10px);
 }
 
-textarea {
-    width: 100%;
-    resize: vertical; /* Allow vertical resizing */
+#home_address_name,
+#company_address_name,
+#home_address,
+#company_address {
+    width: calc(50% - 10px); /* Set the width to 50% of the container minus some padding */
+    margin-bottom: 10px;
 }
+

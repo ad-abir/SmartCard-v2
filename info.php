@@ -11,8 +11,81 @@
 </head>
 
 <body>
-    <h2>Contact Information</h2>
-    <form action="submit_form.php" method="POST">
+    <div class="Container">
+        <form action="" method="POST">
+            <h2>Registration</h2>
+            <div class="content">
+                <div class="input-box">
+                    <label for="name">Full Name</label>
+                    <input type="text" placeholder="Your Name" name="name" required>
+                </div>
+                <div class="input-box">
+                    <label for="bio">Bio</label>
+                    <textarea placeholder="Your Bio" name="bio"></textarea>
+                </div>
+                <div class="input-box">
+                    <label for="description">Description</label>
+                    <textarea placeholder="Description" name="description"></textarea>
+                </div>
+                <div class="input-box">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="Your Email" name="email" required>
+                </div>
+                <div class="input-box">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" placeholder="Your Phone Number" name="phone">
+                </div>
+                <div class="input-box">
+                    <label for="whatsapp">WhatsApp Number</label>
+                    <input type="tel" placeholder="Your WhatsApp Number" name="whatsapp">
+                </div>
+                <div class="input-box">
+                    <label for="home_address">Home Address</label>
+                    <input type="text" placeholder="Recipient's Name" name="home_recipient_name">
+                    <input type="text" placeholder="Address" name="home_address">
+                    <input type="text" placeholder="Google Maps Link" name="home_google_link">
+                </div>
+                <div class="input-box">
+                    <label for="company_address">Company Address</label>
+                    <input type="text" placeholder="Recipient's Name" name="company_recipient_name">
+                    <input type="text" placeholder="Address" name="company_address">
+                    <input type="text" placeholder="Google Maps Link" name="company_google_link">
+                </div>
+                <div class="input-box">
+                    <label for="emergency_number">Emergency Number</label>
+                    <input type="tel" placeholder="Emergency Number" name="emergency_number">
+                </div>
+                <div class="input-box">
+                    <label for="facebook">Facebook</label>
+                    <input type="url" placeholder="Facebook Profile Link" name="facebook">
+                </div>
+                <div class="input-box">
+                    <label for="instagram">Instagram</label>
+                    <input type="url" placeholder="Instagram Profile Link" name="instagram">
+                </div>
+                <div class="input-box">
+                    <label for="linkedin">LinkedIn</label>
+                    <input type="url" placeholder="LinkedIn Profile Link" name="linkedin">
+                </div>
+                <div class="input-box">
+                    <label for="github">GitHub</label>
+                    <input type="url" placeholder="GitHub Profile Link" name="github">
+                </div>
+            </div>
+            <div class="alert">
+                <p>By clicking register, you agree to our <a href="#">Terms & Conditions</a>
+            </div>
+            <div class="button-container">
+                <button class="register_button">
+                    Register
+                </button>
+            </div>
+        </form>
+    </div>
+
+
+    <!-- <h2>Contact Information</h2>
+    <form class="info_form_for_records" action="submit_form.php" method="POST">
         <div id="profile_picture_container">
             <label for="profile_picture">Profile Picture:</label>
             <input type="file" id="profile_picture" name="profile_picture" accept="image/*">
@@ -60,7 +133,7 @@
     </form>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js"></script> -->
 
 </body>
 

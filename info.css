@@ -1,4 +1,62 @@
-/* styles.css */
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(to right, #ff4b28, #ff228c);
+}
+
+.Container {
+    max-width: 650px;
+    padding: 28px;
+    margin: 0 28px;
+    overflow: hidden;
+    background: rgba(0,0,0,0.2);
+    box-shadow: 0 15px 20px rgba(0,0,0,0.6);
+}
+
+h2 {
+    font-size: 26px;
+    font-weight: bold;
+    text-align: left;
+    color: #fff;
+    padding-bottom: 8px;
+    border-bottom: 1px solid silver;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.input-box {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding-bottom: 15px;
+}
+
+.input-box:nth-child(2n) {
+    justify-content: end;
+}
+
+.input-box label {
+    width: 95%;
+    color: #fff;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+/* 
 
 body {
     font-family: Arial, sans-serif;
@@ -12,20 +70,19 @@ h2 {
     background: linear-gradient(to right, #ff4b28, #ff228c);
 }
 
-form {
+.info_form_for_records {
+    width: 50%;
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
 }
 
 label {
     font-weight: bold;
 }
-
-
-
-/* Add this CSS to styles.css */
 
 #home_address_name,
 #company_address_name,
@@ -51,7 +108,7 @@ label {
 input[type="text"],
 input[type="email"],
 input[type="tel"],
-/* input[type="url"], */
+
 textarea {
     width: 100%;
     padding: 10px;
@@ -85,7 +142,6 @@ input:invalid + span {
     font-size: 0.8em;
 }
 
-/* Optional: Styles for specific fields */
 #full_name,
 #email,
 #phone_number,
@@ -98,7 +154,7 @@ input:invalid + span {
 #company_address_name,
 #home_address,
 #company_address {
-    width: calc(50% - 10px); /* Set the width to 50% of the container minus some padding */
+    width: calc(50% - 10px);
     margin-bottom: 10px;
 }
-
+ */

@@ -18,7 +18,7 @@ body {
     padding: 28px;
     margin: 0 28px;
     overflow: hidden;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.5);
     box-shadow: 0 15px 20px rgba(0,0,0,0.6);
 }
 
@@ -56,6 +56,76 @@ h2 {
     margin: 5px 0;
 }
 
+.input-box input {
+    height: 40px;
+    width: 95%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.input-box input:is(:focus,:valid) {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.input-box textarea {
+    height: 50px;
+    width: 95%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    resize: none; 
+}
+
+.input-box textarea:is(:focus,:valid) {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+
+.alert p {
+    font-size: 14px;
+    font-style: italic;
+    color: #fff;
+    margin: 5px 0;
+    padding: 10px;
+    line-height: 1.5;
+}
+
+.alert a {
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.alert a:hover {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #ccc;
+}
+
+.button-container {
+    margin: 15px 0;
+}
+
+.button-container button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    display: block;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(to right,#ff228c, #ff4b28);
+    cursor: pointer;
+    transition: 0.3S;
+}
+
+.button-container button:hover {
+    background-image: linear-gradient(to right, #ff4b28, #ff228c);
+}
 /* 
 
 body {

@@ -76,7 +76,7 @@
                 <p>By clicking register, you agree to our <a href="#">Terms & Conditions</a>
             </div>
             <div class="button-container">
-                <button class="register_button">
+                <button>
                     Register
                 </button>
             </div>

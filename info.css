@@ -22,6 +22,10 @@ body {
     box-shadow: 0 15px 20px rgba(0,0,0,0.6);
 }
 
+form {
+    height: auto;
+}
+
 h2 {
     font-size: 26px;
     font-weight: bold;
@@ -81,6 +85,10 @@ h2 {
 
 .input-box textarea:is(:focus,:valid) {
     box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.home_add, .com_add {
+    margin-bottom: 1%;
 }
 
 

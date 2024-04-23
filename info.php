@@ -56,6 +56,10 @@
                     <input type="tel" placeholder="Emergency Number" name="emergency_number">
                 </div>
                 <div class="input-box">
+                    <label for="website">Web Address</label>
+                    <input type="url" placeholder="Your Website Address" name="website">
+                </div>
+                <div class="input-box">
                     <label for="facebook">Facebook</label>
                     <input type="url" placeholder="Facebook Profile Link" name="facebook">
                 </div>

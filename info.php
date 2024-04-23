@@ -77,7 +77,8 @@
                 </div>
             </div>
             <div class="alert">
-                <p>By clicking register, you agree to our <a href="#">Terms & Conditions</a>
+                <input type="checkbox" name="agree_terms" required>
+                <span class="alert-text">By clicking register, you agree to our <a href="#">Terms & Conditions</a></span>
             </div>
             <div class="button-container">
                 <button>

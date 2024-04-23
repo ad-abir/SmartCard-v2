@@ -21,7 +21,7 @@
                 </div>
                 <div class="input-box">
                     <label for="bio">Bio</label>
-                    <textarea placeholder="Your Bio" name="bio"></textarea>
+                    <input type="text" placeholder="Your Bio" name="bio"></input>
                 </div>
                 <div class="input-box">
                     <label for="description">Description</label>
@@ -41,15 +41,15 @@
                 </div>
                 <div class="input-box">
                     <label for="home_address">Home Address</label>
-                    <input type="text" placeholder="Recipient's Name" name="home_recipient_name">
-                    <input type="text" placeholder="Address" name="home_address">
-                    <input type="text" placeholder="Google Maps Link" name="home_google_link">
+                    <input class="home_add" type="text" placeholder="Recipient's Name" name="home_recipient_name">
+                    <input class="home_add" type="text" placeholder="Address" name="home_address">
+                    <input class="home_add" type="text" placeholder="Google Maps Link" name="home_google_link">
                 </div>
                 <div class="input-box">
                     <label for="company_address">Company Address</label>
-                    <input type="text" placeholder="Recipient's Name" name="company_recipient_name">
-                    <input type="text" placeholder="Address" name="company_address">
-                    <input type="text" placeholder="Google Maps Link" name="company_google_link">
+                    <input class="com_add" type="text" placeholder="Recipient's Name" name="company_recipient_name">
+                    <input class="com_add" type="text" placeholder="Address" name="company_address">
+                    <input class="com_add" type="text" placeholder="Google Maps Link" name="company_google_link">
                 </div>
                 <div class="input-box">
                     <label for="emergency_number">Emergency Number</label>

@@ -12,7 +12,7 @@
 
 <body>
     <div class="Container">
-        <form action="" method="POST">
+        <form class="registration_form" action="" method="POST">
             <h2>Registration</h2>
             <div class="content">
                 <div class="input-box">

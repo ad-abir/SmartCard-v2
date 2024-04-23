@@ -92,12 +92,12 @@ h2 {
 }
 
 
-.alert p {
+.alert-text {
     font-size: 14px;
     font-style: italic;
     color: #fff;
     margin: 5px 0;
-    padding: 10px;
+    padding: 3px;
     line-height: 1.5;
 }
 

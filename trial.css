@@ -1,0 +1,55 @@
+.Container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.registration_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.rightRound, .leftRound {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.rightRound:hover, .leftRound:hover {
+    background-color: #0056b3;
+}
+
+#upload, #cancel, #confirm {
+    margin-bottom: 20px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+i {
+    margin-right: 5px;
+}

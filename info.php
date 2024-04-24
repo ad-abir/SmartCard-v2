@@ -21,9 +21,10 @@ include("config.php");
         <form class="registration_form" action="" enctype="multipart/form-data" method="POST">
             <h2>Registration</h2>
             <div class="upload">
-                <i class="fa-regular fa-user"></i>
+                <input type="file" id="fileInput">
             </div>
-            <div class="rightRound" id="upload">
+
+            <!-- <div class="rightRound" id="upload">
                 <input type="file" name="fileImg" id="fileImg" accept=".jpg, .jpeg, .png">
                 <i class="fa-solid fa-camera"></i>
             </div>
@@ -33,7 +34,7 @@ include("config.php");
             <div class="rightRound" id="confirm">
                 <input type="submit" name="" value="">
                 <i class="fa-solid fa-check"></i>
-            </div>
+            </div> -->
             <div class="content">
                 <div class="input-box">
                     <label for="name">Full Name</label>

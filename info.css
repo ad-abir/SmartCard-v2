@@ -23,7 +23,7 @@ body {
 }
 
 .registration_form {
-    margin-top: 40%;
+    margin-top: 50%;
 }
 
 h2 {
@@ -35,7 +35,7 @@ h2 {
     border-bottom: 1px solid silver;
 }
 
-.upload {
+/* .upload {
     width: 140px;
     position: relative;
     margin: auto;
@@ -89,8 +89,60 @@ h2 {
 
 .upload input::-webkit-file-upload-button, .upload input[type=submit] {
     cursor: pointer;
+} */
+
+.upload {
+    position: relative;
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        margin-top: 2%;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        text-align: center;
+        line-height: 150px;
+        /* overflow: hidden; */
+        background-image: url(images/profile_pic3.jpg);
+        background-size: cover;
+
 }
 
+.upload input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.upload input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1; /* Ensure the file input is on top of other elements */
+}
+
+.upload::after {
+    content: "\f030"; /* Unicode character for the camera icon in Font Awesome */
+    font-family: "Font Awesome 5 Free"; /* Font family for Font Awesome icons */
+    font-weight: 900; /* Font weight for Font Awesome icons */
+    font-size: 30px; /* Adjust size as needed */
+    color: #000; /* Color of the camera button */
+    position: absolute; /* Position the button */
+    top: 60%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
 
 
 .content {

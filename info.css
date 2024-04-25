@@ -129,22 +129,6 @@ h2 {
     z-index: 1; /* Ensure the file input is on top of other elements */
 }
 
-.upload::after {
-    content: "\f030"; /* Unicode character for the camera icon in Font Awesome */
-    font-family: "Font Awesome 5 Free"; /* Font family for Font Awesome icons */
-    font-weight: 900; /* Font weight for Font Awesome icons */
-    font-size: 30px; /* Adjust size as needed */
-    color: #000; /* Color of the camera button */
-    position: absolute; /* Position the button */
-    top: 60%;
-    left: 85%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    z-index: 3;
-}
-
-
 .content {
     display: flex;
     flex-wrap: wrap;

@@ -22,7 +22,10 @@ include("config.php");
             <h2>Registration</h2>
             <div class="upload">
                 <input type="file" id="fileInput">
+                <!-- <i class="fas fa-camera" id="cameraIcon"></i> -->
+                <img src="images/profile_pic3.jpg" alt="Profile Picture" id="profileImage">
             </div>
+            <script src="change_profile_img.js"></script>
 
             <!-- <div class="rightRound" id="upload">
                 <input type="file" name="fileImg" id="fileImg" accept=".jpg, .jpeg, .png">

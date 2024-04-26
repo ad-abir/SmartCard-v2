@@ -1,5 +1,19 @@
 <?php
 include("config.php");
+
+session_start(); // Start the session
+
+// Check if the email is stored in the session
+if (isset($_SESSION['email'])) {
+    // Assign the email from the session to another variable
+    $email = $_SESSION['email'];
+
+    // Now you can use $email variable for further processing
+    //echo "Email from session: " . $email;
+} else {
+    //echo "Email not found in session.";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +27,9 @@ include("config.php");
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="info.css">
+
+    <link href="cropperjs/cropper.css" rel="stylesheet">
+    <script src="cropperjs/cropper.js"></script>
 
 </head>
 
@@ -53,7 +70,7 @@ include("config.php");
                 </div>
                 <div class="input-box">
                     <label for="email">Email</label>
-                    <input type="email" placeholder="Your Email" name="email" required>
+                    <input type="email" placeholder="Your Email" name="email" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>" required readonly>
                 </div>
                 <div class="input-box">
                     <label for="phone">Phone Number</label>

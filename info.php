@@ -39,22 +39,10 @@ if (isset($_SESSION['email'])) {
             <h2>Registration</h2>
             <div class="upload">
                 <input type="file" id="fileInput">
-                <!-- <i class="fas fa-camera" id="cameraIcon"></i> -->
                 <img src="images/profile_pic3.jpg" alt="Profile Picture" id="profileImage">
             </div>
             <script src="change_profile_img.js"></script>
 
-            <!-- <div class="rightRound" id="upload">
-                <input type="file" name="fileImg" id="fileImg" accept=".jpg, .jpeg, .png">
-                <i class="fa-solid fa-camera"></i>
-            </div>
-            <div class="leftRound" id="cancel">
-                <i class="fa-solid fa-xmark"></i>
-            </div>
-            <div class="rightRound" id="confirm">
-                <input type="submit" name="" value="">
-                <i class="fa-solid fa-check"></i>
-            </div> -->
             <div class="content">
                 <div class="input-box">
                     <label for="name">Full Name</label>
@@ -134,5 +122,47 @@ if (isset($_SESSION['email'])) {
 </html>
 
 <?php
+// Establish connection to the MySQL database
+include("config.php");
 
+session_start(); // Start the session
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve input values from the form
+    $name = $_POST['name'];
+    $bio = $_POST['bio'];
+    $description = $_POST['description'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $whatsapp = $_POST['whatsapp'];
+    $home_recipient_name = $_POST['home_recipient_name'];
+    $home_address = $_POST['home_address'];
+    $home_google_link = $_POST['home_google_link'];
+    $company_recipient_name = $_POST['company_recipient_name'];
+    $company_address = $_POST['company_address'];
+    $company_google_link = $_POST['company_google_link'];
+    $emergency_number = $_POST['emergency_number'];
+    $website = $_POST['website'];
+    $facebook = $_POST['facebook'];
+    $instagram = $_POST['instagram'];
+    $linkedin = $_POST['linkedin'];
+    $github = $_POST['github'];
+
+    // Sanitize and validate the input data (not implemented here for brevity)
+
+    // Construct the SQL INSERT statement
+    $sql = "INSERT INTO your_table_name (name, bio, description, email, phone, whatsapp, home_recipient_name, home_address, home_google_link, company_recipient_name, company_address, company_google_link, emergency_number, website, facebook, instagram, linkedin, github) 
+            VALUES ('$name', '$bio', '$description', '$email', '$phone', '$whatsapp', '$home_recipient_name', '$home_address', '$home_google_link', '$company_recipient_name', '$company_address', '$company_google_link', '$emergency_number', '$website', '$facebook', '$instagram', '$linkedin', '$github')";
+
+    // Execute the SQL statement
+    if (mysqli_query($conn, $sql)) {
+        echo "Records inserted successfully.";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+
+    // Close the database connection
+    mysqli_close($conn);
+}
 ?>

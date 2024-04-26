@@ -1,19 +1,18 @@
-<?php 
-    include("config.php");
+<?php
+include("config.php");
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartCard- Signin/ Signup</title>
-    
+
     <link rel="stylesheet" href="signup.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
-    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script src="signup.js" defer></script>
     <script src="pass.js" defer></script>
@@ -21,6 +20,7 @@
     <script src="https://smtpjs.com/v3/smtp.js"></script>
 
 </head>
+
 <body>
     <div class="container" id="main">
         <div class="sign-up">
@@ -84,123 +84,126 @@
     </div>
 
 </body>
+
 </html>
 
 <?php
-    include("config.php");
+include("config.php");
 
-    // use PHPMailer\PHPMailer\PHPMailer;
-    // use PHPMailer\PHPMailer\SMTP;
-    // use PHPMailer\PHPMailer\Exception;
+session_start();
 
-    // //Load Composer's autoloader
-    // require 'vendor/autoload.php';
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\SMTP;
+// use PHPMailer\PHPMailer\Exception;
 
-    // function sendemail_verify($first_name,$email,$verification_code)
-    // {
-    //     $mail = new PHPMailer(true);
-    //     $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-    //     //$mail->SMTPDebug = 2;
-    //     $mail->isSMTP();
-    //     $mail->SMTPAuth   = true;
+// //Load Composer's autoloader
+// require 'vendor/autoload.php';
 
-    //     $mail->Host       = "xyz.exampl.com";
-    //     $mail->Username   = "xyz@gmail.com";
-    //     $mail->Password   = "xyz";
+// function sendemail_verify($first_name,$email,$verification_code)
+// {
+//     $mail = new PHPMailer(true);
+//     $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+//     //$mail->SMTPDebug = 2;
+//     $mail->isSMTP();
+//     $mail->SMTPAuth   = true;
 
-    //     $mail->SMTPSecure = "xyz";
-    //     $mail->Port       = xyz;
+//     $mail->Host       = "xyz.exampl.com";
+//     $mail->Username   = "xyz@gmail.com";
+//     $mail->Password   = "xyz";
 
-    //     $mail->setFrom("smartcardv2@gmail.com", "$first_name");
-    //     $mail->addAddress($email);
+//     $mail->SMTPSecure = "xyz";
+//     $mail->Port       = xyz;
 
-    //     $mail->isHTML(true);                                  
-    //     $mail->Subject  = "Verification code for Smart Card";
+//     $mail->setFrom("smartcardv2@gmail.com", "$first_name");
+//     $mail->addAddress($email);
 
-    //     $email_template = "<h2>You have registered with Smart Card</h2>
-    //     <h5>Verify your email address to login.</h5>
-    //     <br/><br/>
-    //     Your verification code: $verification_code";
+//     $mail->isHTML(true);                                  
+//     $mail->Subject  = "Verification code for Smart Card";
+
+//     $email_template = "<h2>You have registered with Smart Card</h2>
+//     <h5>Verify your email address to login.</h5>
+//     <br/><br/>
+//     Your verification code: $verification_code";
 
 
-    //     $mail->Body     = $email_template;
-    //     $mail->send();
-    //     echo 'Email has been sent';
-    // }
+//     $mail->Body     = $email_template;
+//     $mail->send();
+//     echo 'Email has been sent';
+// }
 
-    if(isset($_POST['signup'])) {
-        $first_name = mysqli_real_escape_string($connection, $_POST['fname']);
-        $last_name  = mysqli_real_escape_string($connection, $_POST['lname']);
-        $email      = mysqli_real_escape_string($connection, $_POST['email']);
-        $pass       = mysqli_real_escape_string($connection, $_POST['pass']);
-        $con_pass   = mysqli_real_escape_string($connection, $_POST['confirm_pass']);
+if (isset($_POST['signup'])) {
+    $first_name = mysqli_real_escape_string($connection, $_POST['fname']);
+    $last_name  = mysqli_real_escape_string($connection, $_POST['lname']);
+    $email      = mysqli_real_escape_string($connection, $_POST['email']);
+    $pass       = mysqli_real_escape_string($connection, $_POST['pass']);
+    $con_pass   = mysqli_real_escape_string($connection, $_POST['confirm_pass']);
 
-        // Check if the password and confirm password match
-        if ($pass !== $con_pass) {
-            echo "<script>var signupMessage = 'Sign Up Failed.\\nPasswords do not match.\\nPlease try again.';</script>";
-        } elseif (strlen($pass) < 8) {
-            echo "<script>var signupMessage = 'Sign Up Failed.\\nPassword must be at least 8 characters long.\\nPlease try again.';</script>";
+    // Check if the password and confirm password match
+    if ($pass !== $con_pass) {
+        echo "<script>var signupMessage = 'Sign Up Failed.\\nPasswords do not match.\\nPlease try again.';</script>";
+    } elseif (strlen($pass) < 8) {
+        echo "<script>var signupMessage = 'Sign Up Failed.\\nPassword must be at least 8 characters long.\\nPlease try again.';</script>";
+    } else {
+        // Check if the email already exists in the database
+        $check_query = "SELECT * FROM signup WHERE `Email` = '$email'";
+        $check_result = mysqli_query($connection, $check_query);
+
+        if (mysqli_num_rows($check_result) > 0) {
+            echo "<script>var signupMessage = 'Sign Up Failed.\\nThis email address already exists.\\nPlease use a different email address.';</script>";
         } else {
-            // Check if the email already exists in the database
-            $check_query = "SELECT * FROM signup WHERE `Email` = '$email'";
-            $check_result = mysqli_query($connection, $check_query);
-
-            if(mysqli_num_rows($check_result) > 0) {
-                echo "<script>var signupMessage = 'Sign Up Failed.\\nThis email address already exists.\\nPlease use a different email address.';</script>";
+            // Validate if email is a valid Gmail address
+            if (!preg_match("/^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@gmail.com$/", $email)) {
+                echo "<script>var signupMessage = 'Sign Up Failed.\\nPlease provide a valid Gmail address.';</script>";
             } else {
-                // Validate if email is a valid Gmail address
-                if (!preg_match("/^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@gmail.com$/", $email)) {
-                    echo "<script>var signupMessage = 'Sign Up Failed.\\nPlease provide a valid Gmail address.';</script>";
+                // Insert the user data into the signup table
+                $query = "INSERT INTO signup (`First Name`, `Last Name`, `Email`, `Password`, `Confirm Password`) VALUES ('$first_name','$last_name','$email','$pass','$con_pass')";
+                $data = mysqli_query($connection, $query);
+
+                if ($data) {
+                    echo "<script>var signupMessage = 'Sign Up Successful!\\nA verification code is sent to your email address.';</script>";
+                    $_SESSION['email'] = $email;
+                    // Generate a random verification code
+                    // $verification_code = mt_rand(100000, 999999);
+
+                    // $query_verify = "INSERT INTO verify (`Email`,`Verification_code`) VALUES ('$email','$verification_code')";
+                    // $data_verify = mysqli_query($connection, $query_verify);
+
+                    // echo "<script>SendOTP('$email', '$verification_code');</script>";
+
+                    header('location:info.php');
+                    //sendemail_verify("$first_name","$email","$verification_code");
+
+
                 } else {
-                    // Insert the user data into the signup table
-                    $query = "INSERT INTO signup (`First Name`, `Last Name`, `Email`, `Password`, `Confirm Password`) VALUES ('$first_name','$last_name','$email','$pass','$con_pass')";
-                    $data = mysqli_query($connection, $query);
-
-                    if($data) {
-                        echo "<script>var signupMessage = 'Sign Up Successful!\\nA verification code is sent to your email address.';</script>";
-
-                        // Generate a random verification code
-                        // $verification_code = mt_rand(100000, 999999);
-
-                        // $query_verify = "INSERT INTO verify (`Email`,`Verification_code`) VALUES ('$email','$verification_code')";
-                        // $data_verify = mysqli_query($connection, $query_verify);
-
-                        // echo "<script>SendOTP('$email', '$verification_code');</script>";
-
-                        header('location:verification.php');
-                        //sendemail_verify("$first_name","$email","$verification_code");
-
-
-                    } else {
-                        echo "<script>var signupMessage = 'Sign Up Failed.\\nError: " . mysqli_error($connection) . "';</script>";
-                    }                    
+                    echo "<script>var signupMessage = 'Sign Up Failed.\\nError: " . mysqli_error($connection) . "';</script>";
                 }
             }
         }
     }
+}
 ?>
 
 <?php
-    include("config.php");
-    session_start(); // Start or resume the session
+include("config.php");
+session_start();
 
-    if(isset($_POST['signin'])) {
-        $username = $_POST['email'];
-        $pass_key = $_POST['pass'];
+if (isset($_POST['signin'])) {
+    $username = $_POST['email'];
+    $pass_key = $_POST['pass'];
 
-        // Validate user credentials
-        $check_query = "SELECT * FROM signup WHERE Email = '$username' && Password = '$pass_key'";
-        $info = mysqli_query($connection, $check_query);
+    // Validate user credentials
+    $check_query = "SELECT * FROM signup WHERE Email = '$username' && Password = '$pass_key'";
+    $info = mysqli_query($connection, $check_query);
 
-        if ($info && mysqli_num_rows($info) == 1) {
-            // Login successful
-            $_SESSION['email'] = $username; // Store email in session
-            //header("Location: dashboard.php"); // Redirect to dashboard or another page
-            echo "Successful login";
-            exit(); // Stop further execution
-        } else {
-            // Login failed
-            echo "Invalid email or password";
-        }
+    if ($info && mysqli_num_rows($info) == 1) {
+        // Login successful
+        $_SESSION['email'] = $username; // Store email in session
+        //header("Location: dashboard.php"); // Redirect to dashboard or another page
+        echo "Successful login";
+        exit(); // Stop further execution
+    } else {
+        // Login failed
+        echo "Invalid email or password";
     }
+}
 ?>

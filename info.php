@@ -38,7 +38,7 @@ if (isset($_SESSION['email'])) {
         <form class="registration_form" action="" enctype="multipart/form-data" method="POST">
             <h2>Registration</h2>
             <div class="upload">
-                <input type="file" name="uploadfile" id="fileInput">
+                <input type="file" name="uploadfile" id="fileInput" accept="image/*" onchange="previewImage(event)">
                 <img src="images/profile_pic3.jpg" alt="Profile Picture" id="profileImage">
             </div>
             <script src="change_profile_img.js"></script>

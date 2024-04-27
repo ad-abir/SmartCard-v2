@@ -38,7 +38,7 @@ if (isset($_SESSION['email'])) {
         <form class="registration_form" action="" enctype="multipart/form-data" method="POST">
             <h2>Registration</h2>
             <div class="upload">
-                <input type="file" id="fileInput">
+                <input type="file" name="uploadfile" id="fileInput">
                 <img src="images/profile_pic3.jpg" alt="Profile Picture" id="profileImage">
             </div>
             <script src="change_profile_img.js"></script>
@@ -130,6 +130,12 @@ session_start(); // Start the session
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve input values from the form
+
+    $filename = $_FILES["uploadfile"]["name"];
+    $tempname = $_FILES["uploadfile"]["tmp_name"];
+    $folder = "profile_pic/" . $filename;
+    move_uploaded_file($tempname, $folder);
+
     $name = $_POST['name'];
     $bio = $_POST['bio'];
     $description = $_POST['description'];

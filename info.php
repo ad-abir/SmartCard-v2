@@ -158,8 +158,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize and validate the input data (not implemented here for brevity)
 
     // Construct the SQL INSERT statement
-    $sql = "INSERT INTO your_table_name (name, bio, description, email, phone, whatsapp, home_recipient_name, home_address, home_google_link, company_recipient_name, company_address, company_google_link, emergency_number, website, facebook, instagram, linkedin, github) 
-            VALUES ('$name', '$bio', '$description', '$email', '$phone', '$whatsapp', '$home_recipient_name', '$home_address', '$home_google_link', '$company_recipient_name', '$company_address', '$company_google_link', '$emergency_number', '$website', '$facebook', '$instagram', '$linkedin', '$github')";
+    $sql = "INSERT INTO your_table_name (image, name, bio, description, email, phone, whatsapp, home_recipient_name, home_address, home_google_link, company_recipient_name, company_address, company_google_link, emergency_number, website, facebook, instagram, linkedin, github) 
+            VALUES ('$folder','$name', '$bio', '$description', '$email', '$phone', '$whatsapp', '$home_recipient_name', '$home_address', '$home_google_link', '$company_recipient_name', '$company_address', '$company_google_link', '$emergency_number', '$website', '$facebook', '$instagram', '$linkedin', '$github')";
 
     // Execute the SQL statement
     if (mysqli_query($conn, $sql)) {

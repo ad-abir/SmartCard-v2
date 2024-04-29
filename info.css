@@ -131,6 +131,10 @@ h2 {
     z-index: 0;
 }
 
+.text_for_user {
+    color: #ffffff;
+}
+
 .content {
     display: flex;
     flex-wrap: wrap;

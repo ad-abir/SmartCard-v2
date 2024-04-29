@@ -43,6 +43,14 @@ if (isset($_SESSION['email'])) {
             </div>
             <script src="change_profile_img.js"></script>
 
+            <br><br>
+            <label class="text_for_user" for="coverColor">Choose a cover background color:</label>
+            <input type="color" id="coverColor" name="coverColor">
+
+            <br>
+            <label class="text_for_user" for="addGradient">Include gradient:</label>
+            <input type="checkbox" id="addGradient" name="addGradient">
+
             <div class="content">
                 <div class="input-box">
                     <label for="name">Full Name</label>

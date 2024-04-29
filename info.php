@@ -144,6 +144,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $folder = "profile_pic/" . $filename;
     move_uploaded_file($tempname, $folder);
 
+    $coverColor = $_POST['coverColor']; // Retrieve cover color
+    $addGradient = isset($_POST['addGradient']) ? 1 : 0; // Retrieve gradient
+
     $name = $_POST['name'];
     $bio = $_POST['bio'];
     $description = $_POST['description'];
@@ -167,7 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Construct the SQL INSERT statement
     $sql = "INSERT INTO user_info (`Image`, `Name`, `Bio`, `Description`, `Email`, `Phone_number`, `WhatsApp`, `Home_recipeint`, `Home_address`, `Home_link`, `Company_recipeint`, `Company_address`, `Company_link`, `Emergency_number`, `Web_address`, `Facebook`, `Instagram`, `LinkedIn`, `GitHub`, `Cover_color`, `Color_gradient`) 
-            VALUES ('$folder','$name', '$bio', '$description', '$email', '$phone', '$whatsapp', '$home_recipient_name', '$home_address', '$home_google_link', '$company_recipient_name', '$company_address', '$company_google_link', '$emergency_number', '$website', '$facebook', '$instagram', '$linkedin', '$github')";
+            VALUES ('$folder','$name', '$bio', '$description', '$email', '$phone', '$whatsapp', '$home_recipient_name', '$home_address', '$home_google_link', '$company_recipient_name', '$company_address', '$company_google_link', '$emergency_number', '$website', '$facebook', '$instagram', '$linkedin', '$github', '$coverColor', '$addGradient')";
 
     // Execute the SQL statement
     if (mysqli_query($conn, $sql)) {

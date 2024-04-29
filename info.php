@@ -166,7 +166,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize and validate the input data (not implemented here for brevity)
 
     // Construct the SQL INSERT statement
-    $sql = "INSERT INTO your_table_name (image, name, bio, description, email, phone, whatsapp, home_recipient_name, home_address, home_google_link, company_recipient_name, company_address, company_google_link, emergency_number, website, facebook, instagram, linkedin, github) 
+    $sql = "INSERT INTO user_info (`Image`, `Name`, `Bio`, `Description`, `Email`, `Phone_number`, `WhatsApp`, `Home_recipeint`, `Home_address`, `Home_link`, `Company_recipeint`, `Company_address`, `Company_link`, `Emergency_number`, `Web_address`, `Facebook`, `Instagram`, `LinkedIn`, `GitHub`, `Cover_color`, `Color_gradient`) 
             VALUES ('$folder','$name', '$bio', '$description', '$email', '$phone', '$whatsapp', '$home_recipient_name', '$home_address', '$home_google_link', '$company_recipient_name', '$company_address', '$company_google_link', '$emergency_number', '$website', '$facebook', '$instagram', '$linkedin', '$github')";
 
     // Execute the SQL statement
